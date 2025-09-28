@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            width: 300px;
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px;
+            margin: 0;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .header h2 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .header p {
+            margin: 5px 0 0 0;
+            font-size: 12px;
+            opacity: 0.8;
+        }
+        
+        .toggle-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+        
+        .toggle-btn {
+            background: #4CAF50;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .toggle-btn:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .toggle-btn.active {
+            background: #f44336;
+        }
+        
+        .toggle-btn.active:hover {
+            background: #e53935;
+        }
+        
+        .theme-section {
+            margin-bottom: 20px;
+        }
+        
+        .theme-section h3 {
+            margin: 0 0 15px 0;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .theme-buttons {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        
+        .theme-btn {
+            flex: 1;
+            padding: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 12px;
+            text-align: center;
+        }
+        
+        .theme-btn:hover {
+            border-color: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-1px);
+        }
+        
+        .theme-btn.active {
+            border-color: #4CAF50;
+            background: rgba(76, 175, 80, 0.3);
+        }
+        
+        .system-toggle {
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .checkbox {
+            width: 18px;
+            height: 18px;
+            accent-color: #4CAF50;
+        }
+        
+        .checkbox-label {
+            font-size: 12px;
+            cursor: pointer;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 11px;
+            opacity: 0.7;
+        }
+
+        .status-indicator {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #4CAF50;
+            margin-right: 8px;
+            animation: pulse 2s infinite;
+        }
+
+        .status-indicator.inactive {
+            background: #ff5722;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>📖 Reading Focus Mode</h2>
+        <p>Distraction-free reading experience</p>
+    </div>
+    
+    <div class="toggle-container">
+        <button id="focusToggle" class="toggle-btn">
+            <span class="status-indicator" id="statusIndicator"></span>
+            Enable Focus Mode
+        </button>
+    </div>
+    
+    <div class="theme-section">
+        <h3>🎨 Reading Themes</h3>
+        <div class="theme-buttons">
+            <button id="lightTheme" class="theme-btn active" data-theme="light">
+                ☀️ Light
+            </button>
+            <button id="darkTheme" class="theme-btn" data-theme="dark">
+                🌙 Dark
+            </button>
+            <button id="paperTheme" class="theme-btn" data-theme="paper">
+                📜 Paper
+            </button>
+        </div>
+        
+        <div class="system-toggle">
+            <input type="checkbox" id="systemTheme" class="checkbox">
+            <label for="systemTheme" class="checkbox-label">Follow system theme</label>
+        </div>
+    </div>
+    
+    <div class="footer">
+        Click anywhere outside to close
+    </div>
+    
+    <script src="popup.js"></script>
+</body>
+</html>
